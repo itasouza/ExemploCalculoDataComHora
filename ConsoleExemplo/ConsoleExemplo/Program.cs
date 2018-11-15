@@ -12,7 +12,7 @@ namespace ConsoleExemplo
 
         static void Main(string[] args)
         {
-            string DataRetorno = ChangeDate("15/03/2010 23:00", '+', 4000); //04/03/2010 17:40
+            string DataRetorno = ChangeDate("04/03/2010 23:00", '+', 4000); //04/03/2010 17:40
             Console.WriteLine(DataRetorno);
             Console.ReadKey();
         }
@@ -40,18 +40,11 @@ namespace ConsoleExemplo
             //se o valor for menor que 0, a operação e positivo
             if (value < 0)
             {
-                op = '+';
+                Operador = "+";
             }
 
-            //se for fevereiro / dia for maior que 28, considera 28 dias
-            if (mes == 2 && dia > 28)
-            {
-                dia = 28;
-            }
-
-
-
-            if (op == '+')
+            
+            if (Operador == "+")
             {
                 incremento(value);
             }
@@ -59,7 +52,7 @@ namespace ConsoleExemplo
             {
                 decremento(value);
             }
-            return dia + "/" + mes + "/" + ano + " " + hora + ":" + minuto;
+            return dia.ToString(@"00") + "/" + mes.ToString(@"00") + "/" + ano + " " + hora + ":" + minuto;
         }
 
 
