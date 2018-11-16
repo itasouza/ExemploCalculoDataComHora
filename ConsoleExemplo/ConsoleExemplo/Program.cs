@@ -12,17 +12,15 @@ namespace ConsoleExemplo
 
         static void Main(string[] args)
         {
-            string DataRetorno = ChangeDate("04/03/2010 23:00", '+', 4000); //04/03/2010 17:40
+            string DataRetorno = ChangeDate("04/03/2010 23:10", '+', 4000); //04/03/2010 17:40
             Console.WriteLine(DataRetorno);
             Console.ReadKey();
         }
 
         private static string ChangeDate(string date, char op, long value)
         {
-            //verificar se o operador está correto
-            string Operador = Convert.ToString(op);
 
-            if ((!Operador.Equals("+")) && (!Operador.Equals("-")))
+            if ( !op.Equals('+') &&  !op.Equals('-') )
             {
                 return "O operador precisa ser o sinal de '+' ou '-' ";
             }
@@ -40,11 +38,11 @@ namespace ConsoleExemplo
             //se o valor for menor que 0, a operação e positivo
             if (value < 0)
             {
-                Operador = "+";
+                op = '+';
             }
 
             
-            if (Operador == "+")
+            if (op == '+')
             {
                 incremento(value);
             }
